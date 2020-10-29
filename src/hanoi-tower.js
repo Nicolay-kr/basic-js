@@ -1,7 +1,7 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function calculateHanoi(disksNumber) {
-  // throw new CustomError('Not implemented');
+module.exports = function calculateHanoi(/*disksNumber*/) {
+  throw new CustomError('Not implemented');
   // remove line with error and write your code here
   let rod1 = [];
   let rod2 = [];
@@ -72,4 +72,4 @@ module.exports = function calculateHanoi(disksNumber) {
 
   return count
 };
-console.log(module.exports(4))
+// console.log(module.exports(4))

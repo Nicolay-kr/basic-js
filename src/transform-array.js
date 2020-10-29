@@ -9,20 +9,42 @@ module.exports = function transform(arr) {
                  '--double-next': {'func': doubleNext},'--double-prev': {'func': doublePrev}};
 
   function discardNext(i){
-    return 2;
+    if(i+1 == arr.length){
+      newArr[i] = undefined;
+      return 1;
+    }else{return 2;}
+    
   }
   function discardPrev(i){
-    newArr.splice(i-1,1);
-    return 1;
+    if(i-1 < 0){
+      newArr[i] = undefined;
+      return 1;
+    }else{
+      newArr.splice(i-1,1);
+      return 1;
+    }
+    
   }
   function doubleNext(i){
-    newArr.push(arr[i+1])
-    return 1;
+    if(i+1 == arr.length){
+      newArr[i] = undefined;
+      return 1;
+    }else{
+      newArr.push(arr[i+1])
+      return 1;
+    }
+    
   }
   function doublePrev(i){
-    newArr.push(arr[i-1])
-    return 1;
+    if(i-1 < 0){
+      newArr[i] = undefined;
+      return 1;
+    }else{
+      newArr.push(arr[i-1])
+      return 1;
+    }
   }
+
   let i = 0;
   while(i < arr.length ){
                          
@@ -38,4 +60,4 @@ module.exports = function transform(arr) {
     return 'Error'
   }
 }
-console.log(module.exports([1, 2, 3, '--double-next', 1337, '--discard-prev', 4, 5]))
+// console.log(module.exports(['--double-prev', 1, 2, 3]))
