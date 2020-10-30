@@ -20,7 +20,7 @@ module.exports = function getSeason(date) {
     return 'Unable to determine the time of year!'
   }
   else{
-    return 'Error'
+    throw 'Error'
   }
   
 };
